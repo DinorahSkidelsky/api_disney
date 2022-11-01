@@ -10,8 +10,8 @@ Desarrollar una API para explorar el mundo de Disney, la cual permitirá conocer
 
 Requerimientos técnicos:
 
-1. Modelado de Base de Datos
-2. 
+1. Modelado de Base de Datos.
+
 ● Personaje: deberá tener,
 
 ○ Imagen (no es necesario que esté persistida en la base de datos).
