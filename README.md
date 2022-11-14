@@ -1,127 +1,127 @@
 ### CHALLENGE BACKEND - Ruby 🚀
 
-Desarrollar una API para explorar el mundo de Disney, la cual permitirá conocer y modificar los personajes que lo componen y entender en qué películas estos participaron. Por otro lado,deberá exponer la información para que cualquier frontend pueda consumirla.
+Develop an API to explore the world of Disney, which will allow knowing and modifying the characters that make it up and understanding in which movies they participated. On the other hand, you will need to expose the information so that any frontend can consume it.
 
-👉 Utilizar Ruby on Rails.
+👉 Use Ruby on Rails.
 
-👉 No es necesario armar el Frontend.
+👉 It is not necessary to assemble the Frontend.
 
-👉 Las rutas deberán seguir el patrón REST.
+👉 Routes must follow the REST pattern.
 
-
-Requerimientos técnicos:
-
-
-1. Modelado de Base de Datos.
-
-● Personaje: deberá tener,
-
-○ Imagen (no es necesario que esté persistida en la base de datos).
-
-○ Nombre.
-
-○ Edad.
-
-○ Peso.
-
-○ Historia.
-
-○ Películas o series asociadas.
-
-● Película o Serie: deberá tener,
-
-○ Imagen (no es necesario que esté persistida en la base de datos).
-
-○ Título.
-
-○ Fecha de creación.
-
-○ Calificación (del 1 al 5).
-
-○ Personajes asociados.
-
-● Género: deberá tener,
-
-○ Nombre.
-
-○ Imagen (no es necesario que esté persistida en la base de datos).
-
-○ Películas o series asociadas.
+Technical requirements:
 
 
-2. Autenticación de Usuarios
+1️⃣ Database Modeling.
 
-Para realizar peticiones a los endpoints subsiguientes el usuario deberá contar con un token que
-obtendrá al autenticarse. Para ello, deberán desarrollarse los endpoints de registro y login, que
-permitan obtener el token.
+● Character: must have,
+
+○ Image (does not need to be persisted in the database).
+
+○ Name.
+
+○ Age.
+
+○ Weight.
+
+○ History.
+
+○ Associated movies or series.
+
+● Film or Series: must have,
+
+○ Image (does not need to be persisted in the database).
+
+○ Title.
+
+○ Creation date.
+
+○ Rating (from 1 to 5).
+
+○ Associated characters.
+
+● Gender: must have,
+
+○ Name.
+
+○ Image (does not need to be persisted in the database).
+
+○ Associated movies or series.
 
 
-3. Listado de Personajes
+2️⃣ User Authentication
 
-El listado deberá mostrar:
-
-● Imagen (no es necesario que esté persistida en la base de datos).
-
-● Nombre.
+To make requests to subsequent endpoints, the user must have a token that
+you will get when you authenticate. To do this, registration and login endpoints must be developed, which
+allow to obtain the token.
 
 
-4. Creación, Edición y Eliminación de Personajes (CRUD)
+3️⃣ List of Characters
 
-Deberán existir las operaciones básicas de creación, edición y eliminación de personajes.
+The list must show:
+
+● Image (it does not need to be persisted in the database).
+
+● Name.
 
 
-5. Detalle de Personaje
+4️⃣ Character Creation, Editing, and Deletion (CRUD)
 
-En el detalle deberán listarse todos los atributos del personaje, como así también sus películas o series relacionadas.
+The basic operations of creating, editing and deleting characters should exist.
 
 
-6. Búsqueda de Personajes
+5️⃣ Character Detail
 
-Deberá permitir buscar por nombre, y filtrar por edad, peso o películas/series en las que participó.
+In the detail, all the attributes of the character must be listed, as well as their related movies or series.
 
-Para especificar el término de búsqueda o filtros se deberán enviar como parámetros de query:
 
-● GET /characters?name=nombre
+6️⃣ Character Search
 
-● GET /characters?age=edad
+It should allow you to search by name, and filter by age, weight or movies/series in which you participated.
+
+To specify the search term or filters, they must be sent as query parameters:
+
+● GET /characters?name=name
+
+● GET /characters?age=age
 
 ● GET /characters?movies=idMovie
 
 
-7. Listado de Películas
+7️⃣ List of Movies
 
-Deberá mostrar solamente los campos imagen, título y fecha de creación.
+It should show only the image, title and creation date fields.
 
-El endpoint deberá ser:
+The endpoint should be:
 
 ● GET /movies
 
 
-8. Detalle de Película / Serie con sus personajes
+8️⃣ Detail of Movie / Series with its characters
 
-Devolverá todos los campos de la película o serie junto a los personajes asociados a la misma
-
-
-9. Creación, Edición y Eliminación de Película / Serie (CRUD)
-
-Deberán existir las operaciones básicas de creación, edición y eliminación de películas o series.
+It will return all the fields of the movie or series along with the characters associated with it
 
 
-10.Búsqueda de Películas o Series
+9️⃣ Movie/Series Creation, Editing and Deletion (CRUD)
 
-Deberá permitir buscar por título, y filtrar por género. Además, permitir ordenar los resultados por fecha de creación de forma ascendiente o descendiente.
-
-El término de búsqueda, filtro u ordenación se deberán especificar como parámetros de query:
-
-● /movies?name=nombre
-
-● /movies?genre=idGenero
-
-● /movies?order=ASC | DESC
+The basic operations of creating, editing and deleting movies or series must exist.
 
 
-11. Envío de emails
+1️⃣0️⃣ Search for Movies or Series
 
-Al registrarse en el sitio, el usuario deberá recibir un email de bienvenida. Es recomendable, la utilización de algún servicio de terceros como SendGrid.
+It should allow you to search by title, and filter by genre. Also, allow to order the results by date of creation in an ascending or descending way.
 
-Documentación: Es deseable y opcional documentar los endpoints utilizando alguna herramienta como Postman o Swagger.
+The search term, filter or sort must be specified as query parameters:
+
+● /movies?title=title
+
+● /movies?genre=idGenre
+
+● /movies?order=ASC|DESC
+
+
+1️⃣1️⃣ Sending emails
+
+When registering on the site, the user should receive a welcome email. It is recommended, the use of a third-party service such as SendGrid.
+
+‼ Documentation: It is desirable and optional to document the endpoints using a tool such as Postman or Swagger.
+ 
