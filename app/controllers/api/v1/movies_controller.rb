@@ -3,9 +3,18 @@ class Api::V1::MoviesController < ApplicationController
 
   # GET api/v1/movies
   def index
-    @movies = Movie.all
+    if params[:title].present?
+      @movies = Movie.where('title ILIKE ?', "%#{params[:title]}%")
+    elsif params[:genre].present?
+      @movies = Movie.where('cast(genre_id as text) ILIKE ?', "%#{params[:genre]}%")
+    elsif params[:order].present?
+      @movies = Movie.where('creation_date ILIKE ?', "%#{params[:order]}%")
+      @movies = Movie.order('creation_date DESC')
+    else
+      @movies = Movie.all
+    end
 
-    render json: @movies, only: [:title, :creation_date, :image_url]
+    render json: @movies, only: %i[title creation_date image_url]
   end
 
   # GET api/v1/movies/1

@@ -3,9 +3,17 @@ class Api::V1::CharactersController < ApplicationController
 
   # GET api/v1/characters
   def index
-    @characters = Character.all
+    if params[:name].present?
+      @characters = Character.where('name ILIKE ?', "%#{params[:name]}%")
+    elsif params[:age].present?
+      @characters = Character.where('cast(age as text) ILIKE ?', "%#{params[:age]}%")
+    elsif params[:movie].present?
+      @characters = Character.where('cast(movie_id as text) ILIKE ?', "%#{params[:movie]}%")
+    else
+      @characters = Character.all
+    end
 
-    render json: @characters, only: [:name, :image_url]
+    render json: @characters, only: %i[name image_url]
   end
 
   # GET api/v1/characters/1
