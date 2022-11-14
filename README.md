@@ -112,11 +112,11 @@ It should allow you to search by title, and filter by genre. Also, allow to orde
 
 The search term, filter or sort must be specified as query parameters:
 
-● /movies?name=name
+● /movies?title=title
 
 ● /movies?genre=idGenre
 
-● /movies?order=ASC | DESC
+● /movies?order=ASC|DESC
 
 
 1️⃣1️⃣ Sending emails
