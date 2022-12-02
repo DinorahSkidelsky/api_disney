@@ -5,11 +5,18 @@ class Api::V1::MoviesController < ApplicationController
   def index
     if params[:title].present?
       @movies = Movie.where('title ILIKE ?', "%#{params[:title]}%")
+      @movies = 'title not found' if @movies.empty?
     elsif params[:genre].present?
       @movies = Movie.where('cast(genre_id as text) ILIKE ?', "%#{params[:genre]}%")
+      @movies = 'genre not found' if @movies.empty?
     elsif params[:order].present?
-      @movies = Movie.where('creation_date ILIKE ?', "%#{params[:order]}%")
-      @movies = Movie.order('creation_date DESC')
+      if params[:order] == 'asc'
+        @movies = Movie.order('creation_date ASC')
+      elsif params[:order] == 'desc'
+        @movies = Movie.order('creation_date DESC')
+      else
+        @movies = 'not found'
+      end
     else
       @movies = Movie.all
     end

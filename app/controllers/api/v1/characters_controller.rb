@@ -5,10 +5,13 @@ class Api::V1::CharactersController < ApplicationController
   def index
     if params[:name].present?
       @characters = Character.where('name ILIKE ?', "%#{params[:name]}%")
+      @characters = 'name not found' if @characters.empty?
     elsif params[:age].present?
       @characters = Character.where('cast(age as text) ILIKE ?', "%#{params[:age]}%")
+      @characters = 'age not found' if @characters.empty?
     elsif params[:movie].present?
       @characters = Character.where('cast(movie_id as text) ILIKE ?', "%#{params[:movie]}%")
+      @characters = 'movie not found' if @characters.empty?
     else
       @characters = Character.all
     end
